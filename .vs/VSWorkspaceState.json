@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Ssiws.Business",
+    "\\Ssiws.Core",
+    "\\Ssiws.Web.Api"
   ],
+  "SelectedNode": "\\Ssiws.Web.Api.sln",
   "PreviewInSolutionExplorer": false
 }
