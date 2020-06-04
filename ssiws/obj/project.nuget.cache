@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "OOw7hYzaQp2cOms1q/V+hq79Pup7j1jjn5+7T8k7kkJf57siEqmurY//0F0ehEAsvAbKsVvsOBbke3Ra+2RJvw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ooztu\\source\\repos\\github\\onuromer\\ssis-on-the-beach\\ssiws\\ssiws.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ooztu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\ooztu\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
+    "C:\\Users\\ooztu\\.nuget\\packages\\swashbuckle.aspnetcore\\5.4.1\\swashbuckle.aspnetcore.5.4.1.nupkg.sha512",
+    "C:\\Users\\ooztu\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.4.1\\swashbuckle.aspnetcore.swagger.5.4.1.nupkg.sha512",
+    "C:\\Users\\ooztu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.4.1\\swashbuckle.aspnetcore.swaggergen.5.4.1.nupkg.sha512",
+    "C:\\Users\\ooztu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.4.1\\swashbuckle.aspnetcore.swaggerui.5.4.1.nupkg.sha512",
+    "C:\\Users\\ooztu\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
