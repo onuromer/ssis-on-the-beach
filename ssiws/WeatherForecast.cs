@@ -1,6 +1,6 @@
 using System;
 
-namespace ssiws
+namespace Ssiws.Web.Api
 {
     public class WeatherForecast
     {

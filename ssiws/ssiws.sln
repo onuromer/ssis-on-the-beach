@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ssiws", "ssiws.csproj", "{AE788F52-7C09-410D-8B34-91D9F03F8D7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ssiws.Web.Api", "Ssiws.Web.Api.csproj", "{AE788F52-7C09-410D-8B34-91D9F03F8D7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ssiws.Core", "..\Ssiws.Core\Ssiws.Core.csproj", "{07330AA0-2D6E-41A4-8F2F-63298FADE81B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ssiws.Business", "..\Ssiws.Business\Ssiws.Business.csproj", "{9A29B32A-03AC-46BA-B787-8CF8CD3AA69B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{AE788F52-7C09-410D-8B34-91D9F03F8D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE788F52-7C09-410D-8B34-91D9F03F8D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE788F52-7C09-410D-8B34-91D9F03F8D7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07330AA0-2D6E-41A4-8F2F-63298FADE81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07330AA0-2D6E-41A4-8F2F-63298FADE81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07330AA0-2D6E-41A4-8F2F-63298FADE81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07330AA0-2D6E-41A4-8F2F-63298FADE81B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A29B32A-03AC-46BA-B787-8CF8CD3AA69B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A29B32A-03AC-46BA-B787-8CF8CD3AA69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A29B32A-03AC-46BA-B787-8CF8CD3AA69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A29B32A-03AC-46BA-B787-8CF8CD3AA69B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

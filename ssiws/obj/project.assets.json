@@ -194,9 +194,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ooztu\\source\\repos\\github\\onuromer\\ssis-on-the-beach\\ssiws\\ssiws.csproj",
-      "projectName": "ssiws",
-      "projectPath": "C:\\Users\\ooztu\\source\\repos\\github\\onuromer\\ssis-on-the-beach\\ssiws\\ssiws.csproj",
+      "projectUniqueName": "C:\\Users\\ooztu\\source\\repos\\github\\onuromer\\ssis-on-the-beach\\ssiws\\Ssiws.Web.Api.csproj",
+      "projectName": "Ssiws.Web.Api",
+      "projectPath": "C:\\Users\\ooztu\\source\\repos\\github\\onuromer\\ssis-on-the-beach\\ssiws\\Ssiws.Web.Api.csproj",
       "packagesPath": "C:\\Users\\ooztu\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ooztu\\source\\repos\\github\\onuromer\\ssis-on-the-beach\\ssiws\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OOw7hYzaQp2cOms1q/V+hq79Pup7j1jjn5+7T8k7kkJf57siEqmurY//0F0ehEAsvAbKsVvsOBbke3Ra+2RJvw==",
+  "dgSpecHash": "DxWqixXfb4Hx/4e+S9qfoKr0PYxDG7d+wzEch15NH2TZ81ON0sfZlf0fZZXTvX9go9m2W9js7aYIVwvQ4AzNRg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ooztu\\source\\repos\\github\\onuromer\\ssis-on-the-beach\\ssiws\\ssiws.csproj",
+  "projectFilePath": "C:\\Users\\ooztu\\source\\repos\\github\\onuromer\\ssis-on-the-beach\\ssiws\\Ssiws.Web.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ooztu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\ooztu\\.nuget\\packages\\microsoft.openapi\\1.1.4\\microsoft.openapi.1.1.4.nupkg.sha512",
