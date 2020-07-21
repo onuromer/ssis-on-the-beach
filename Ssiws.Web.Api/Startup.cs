@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Ssiws.Business.Implementations;
+using Ssiws.Business.Interfaces;
 
 namespace Ssiws.Web.Api
 {
@@ -19,20 +21,23 @@ namespace Ssiws.Web.Api
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            RepoDb.SqlServerBootstrap.Initialize();
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddMvc();
-
+            services.AddOptions();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "An API for SSIS", Version = "v1" });
             });
+
+            services.AddOptions<StandartSettings>().Bind(Configuration.GetSection("StandartSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
