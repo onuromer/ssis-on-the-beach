@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Ssiws.Business.Implementations;
 using Ssiws.Business.Repositories;
-using Ssiws.Core;
+using Ssiws.Core.Entities;
 
 namespace Ssiws.Web.Api.Controllers
 {
@@ -23,7 +23,7 @@ namespace Ssiws.Web.Api.Controllers
         }
 
         [HttpGet("/Properties")]
-        public ActionResult<CatalogProperty> GetProperties()
+        public ActionResult<CatalogProperties> GetProperties()
         {
             var r = new CatalogRepository(settings.Value);
 

@@ -37,7 +37,7 @@ namespace Ssiws.Web.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "An API for SSIS", Version = "v1" });
             });
 
-            services.AddOptions<StandartSettings>().Bind(Configuration.GetSection("StandartSettings"));
+            services.AddOptions<StandartSettings>().Bind(Configuration.GetSection("StandartSettings"));            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

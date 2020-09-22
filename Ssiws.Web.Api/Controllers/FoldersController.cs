@@ -8,7 +8,7 @@ using Microsoft.Extensions.Options;
 using Ssiws.Business.Implementations;
 using Ssiws.Business.Interfaces;
 using Ssiws.Business.Repositories;
-using Ssiws.Core;
+using Ssiws.Core.Entities;
 
 namespace Ssiws.Web.Api.Controllers
 {
@@ -24,7 +24,7 @@ namespace Ssiws.Web.Api.Controllers
         }
 
         [HttpGet()]
-        public ActionResult<Folder> Get()
+        public ActionResult<Folders> Get()
         {
             var r = new FolderRepository(settings.Value);
 
@@ -32,7 +32,7 @@ namespace Ssiws.Web.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Folder> Get(long id)
+        public ActionResult<Folders> Get(long id)
         {
             var r = new FolderRepository(settings.Value);
 
@@ -40,7 +40,7 @@ namespace Ssiws.Web.Api.Controllers
         }
 
         [HttpGet("{id}/Projects")]
-        public ActionResult<Folder> GetProjects(long id)
+        public ActionResult<Folders> GetProjects(long id)
         {
             var r = new ProjectRepository(settings.Value);
 

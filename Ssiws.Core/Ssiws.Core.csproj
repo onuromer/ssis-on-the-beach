@@ -13,10 +13,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="CoreObjects.tt">
+    <Compile Update="Templates\CoreObjects.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreObjects.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\CoreObjects.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>CoreObjects.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\" />
   </ItemGroup>
 
 </Project>

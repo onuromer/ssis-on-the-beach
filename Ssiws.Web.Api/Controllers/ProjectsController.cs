@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Ssiws.Business.Implementations;
 using Ssiws.Business.Repositories;
-using Ssiws.Core;
+using Ssiws.Core.Entities;
 
 namespace Ssiws.Web.Api.Controllers
 {
@@ -23,14 +23,14 @@ namespace Ssiws.Web.Api.Controllers
         }
 
         [HttpGet()]
-        public ActionResult<Project> Get()
+        public ActionResult<Projects> Get()
         {
             var r = new ProjectRepository(settings.Value);
 
             return new ObjectResult(r.QueryAll());
         }
         [HttpGet("{id}")]
-        public ActionResult<Project> Get(long id)
+        public ActionResult<Projects> Get(long id)
         {
             var r = new ProjectRepository(settings.Value);
 
