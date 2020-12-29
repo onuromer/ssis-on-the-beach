@@ -19,137 +19,153 @@
 <#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
 <#@ import namespace="Microsoft.SqlServer.Management.Common" #>
 <#@ output extension=".cs" #>
-<#var connectionString = "Server=.;Database=SSISDB;Integrated Security=SSPI;";
-SqlConnection sqlConnection = new SqlConnection(connectionString);
-ServerConnection serverConnection = new ServerConnection(sqlConnection);
-Server server = new Server(serverConnection);
-var tables = server.Databases[server.ConnectionContext.DatabaseName].Tables;
+<#    var connectionString = "Server=.;Database=SSISDB;Integrated Security=SSPI;";
+    SqlConnection sqlConnection = new SqlConnection(connectionString);
+    ServerConnection serverConnection = new ServerConnection(sqlConnection);
+    Server server = new Server(serverConnection);
+    var tables = server.Databases[server.ConnectionContext.DatabaseName].Tables;
 #>
 <#
-foreach(Table table in tables)
-{
+    foreach(Table table in tables)
+    {
 #>
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
-namespace <#= Host.ResolveParameterValue("Template1", "Template1", "projectDefaultNamespace") #>.Entities 
+namespace <#=Host.ResolveParameterValue("Template1", "Template1", "projectDefaultNamespace") #>.Entities 
 {
-    [Map("[<#= table.Schema #>].[<#= table.Name #>]")]
-    public class <#= FormatTableName(table.Name) #>
+    [Map("[<#=table.Schema #>].[<#=table.Name #>]")]    
+    [ControllerDetails("api/v1/<#=FormatTableName(table.Name) #>"<#=PrimaryKey(table) #>)]    
+    public class <#=FormatTableName(table.Name) #>
     {
 <#
-foreach(Column column in table.Columns)
-{
+        foreach(Column column in table.Columns)
+        {
 #>
-        [Map("[<#= column.Name#>]")]
-        public <#= ToClrType(column.DataType, column.Nullable) #> <#= FormatColumnName(column.Name) #> { get; set; }
+        <#=IsInPrimaryKey(column)#>
+        [Map("[<#=column.Name#>]")]         
+        public <#=ToClrType(column.DataType, column.Nullable) #> <#=FormatColumnName(column.Name) #> { get; set; }
 <#
-}
+        }
 #>
     }
 }
 <#
-SaveOutput(FormatTableName(table.Name) + ".cs");
-}
+        SaveOutput(FormatTableName(table.Name) + ".cs");
+    }
 #>
 
 <#+ 
-private string GetDefaultNamespace()
-{
-    var hostServiceProvider = (IServiceProvider)Host;
-    var dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
-    var activeSolutionProjects = (Array)dte.ActiveSolutionProjects;
-    var dteProject = (EnvDTE.Project)activeSolutionProjects.GetValue(0);
-    var defaultNamespace = dteProject.Properties.Item("DefaultNamespace").Value;
-    return defaultNamespace.ToString() ;
-}
-
-private void SaveOutput(string outputFileName) {
-  string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
-  string entityDirectory = Path.Combine(templateDirectory,@"..\Entities\");
-  string outputFilePath = Path.Combine(entityDirectory , outputFileName);
-  File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString()); 
-  this.GenerationEnvironment.Clear();
-}
-private string FormatTableName(string tableName)
-{
-	var result = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(tableName.Replace("-"," ").Replace("_"," ").ToLower());    
-	return result.Replace(" ","");
-}
-private string FormatColumnName(string columnName)
-{
-	var result = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(columnName.Replace("-"," ").Replace("_"," ").ToLower());
-
-	return result.Replace(" ","");
-}
-private string ToClrType(DataType dataType, bool isNullable)
-{
-	string returnType = string.Empty;
-	switch (dataType.SqlDataType)
+    private string GetDefaultNamespace()
     {
-        case SqlDataType.BigInt:
-            returnType = string.Format("{0}{1}","long", isNullable ? "?":"");
-			break;
-        case SqlDataType.Binary:
-        case SqlDataType.Image:
-        case SqlDataType.Timestamp:
-        case SqlDataType.VarBinary:
-            returnType = "byte[]";
-			break;
-        case SqlDataType.Bit:
-			returnType = string.Format("{0}{1}","bool", isNullable ? "?":"");
-			break;
-        case SqlDataType.Char:
-        case SqlDataType.NChar:
-        case SqlDataType.NText:
-        case SqlDataType.NVarChar:
-        case SqlDataType.Text:
-        case SqlDataType.VarChar:
-        case SqlDataType.Xml:
-        case SqlDataType.SysName:        
-            returnType = string.Format("{0}{1}","string", "");
-			break;
-        case SqlDataType.DateTime:
-        case SqlDataType.SmallDateTime:
-        case SqlDataType.Date:
-        case SqlDataType.Time:
-        case SqlDataType.DateTime2:
-			returnType = string.Format("{0}{1}","System.DateTime", isNullable ? "?":"");
-			break;
-        case SqlDataType.Decimal:
-        case SqlDataType.Money:
-        case SqlDataType.SmallMoney:
-			returnType = string.Format("{0}{1}","decimal", isNullable ? "?":"");
-			break;
-        case SqlDataType.Float:
-			returnType = string.Format("{0}{1}","double", isNullable ? "?":"");
-			break;
-        case SqlDataType.Int:
-			returnType = string.Format("{0}{1}","int", isNullable ? "?":"");
-			break;
-        case SqlDataType.Real:
-			returnType = string.Format("{0}{1}","float", isNullable ? "?":"");
-			break;
-        case SqlDataType.UniqueIdentifier:
-			returnType = string.Format("{0}{1}","Guid", isNullable ? "?":"");
-			break;
-        case SqlDataType.SmallInt:
-            returnType = string.Format("{0}{1}","short", isNullable ? "?":"");
-			break;
-        case SqlDataType.TinyInt:
-            returnType = string.Format("{0}{1}","byte", isNullable ? "?":"");
-			break;
-        case SqlDataType.Variant:
-            returnType = string.Format("{0}{1}","object", "");
-			break;
-        case SqlDataType.DateTimeOffset:
-            returnType = string.Format("{0}{1}","DateTimeOffset", isNullable ? "?":"");
-			break;
-        default:
-            returnType = string.Format("{0}{1}","string", "");
-            break;
-		}
+        var hostServiceProvider = (IServiceProvider)Host;
+        var dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+        var activeSolutionProjects = (Array)dte.ActiveSolutionProjects;
+        var dteProject = (EnvDTE.Project)activeSolutionProjects.GetValue(0);
+        var defaultNamespace = dteProject.Properties.Item("DefaultNamespace").Value;
+        return defaultNamespace.ToString() ;
+    }
 
-		return returnType;
-}
+    private void SaveOutput(string outputFileName) {
+        string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+        string entityDirectory = Path.Combine(templateDirectory,@"..\Entities\");
+        string outputFilePath = Path.Combine(entityDirectory , outputFileName);
+        File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString()); 
+        this.GenerationEnvironment.Clear();
+    }
+    private string FormatTableName(string tableName)
+    {
+        var result = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(tableName.Replace("-"," ").Replace("_"," ").ToLower());    
+        return result.Replace(" ","");
+    }
+    private string FormatColumnName(string columnName)
+    {
+        var result = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(columnName.Replace("-"," ").Replace("_"," ").ToLower());
+
+        return result.Replace(" ","");
+    }
+
+    private string PrimaryKey(Table t)
+    {
+        var pcol=t.Columns.Cast<Column>().FirstOrDefault(col=>col.InPrimaryKey);
+        //if (pcol!=null) {return string.Format(",typeof({0}),\"{1}\"",ToClrType(pcol.DataType, pcol.Nullable),FormatColumnName(pcol.Name));}
+        if (pcol!=null) {return string.Format(",typeof({0})",ToClrType(pcol.DataType, pcol.Nullable));}
+        else {return "";}
+    }
+   private string IsInPrimaryKey(Column c)
+    {        
+        return c.InPrimaryKey?"[Key]":"";
+    }
+    private string ToClrType(DataType dataType, bool isNullable)
+    {
+        string returnType = string.Empty;
+        switch (dataType.SqlDataType)
+        {
+            case SqlDataType.BigInt:
+                returnType = string.Format("{0}{1}","long", isNullable ? "?":"");
+                break;
+            case SqlDataType.Binary:
+            case SqlDataType.Image:
+            case SqlDataType.Timestamp:
+            case SqlDataType.VarBinary:
+                returnType = "byte[]";
+                break;
+            case SqlDataType.Bit:
+                returnType = string.Format("{0}{1}","bool", isNullable ? "?":"");
+                break;
+            case SqlDataType.Char:
+            case SqlDataType.NChar:
+            case SqlDataType.NText:
+            case SqlDataType.NVarChar:
+            case SqlDataType.Text:
+            case SqlDataType.VarChar:
+            case SqlDataType.Xml:
+            case SqlDataType.SysName:        
+                returnType = string.Format("{0}{1}","string", "");
+                break;
+            case SqlDataType.DateTime:
+            case SqlDataType.SmallDateTime:
+            case SqlDataType.Date:
+            case SqlDataType.Time:
+            case SqlDataType.DateTime2:
+                returnType = string.Format("{0}{1}","System.DateTime", isNullable ? "?":"");
+                break;
+            case SqlDataType.Decimal:
+            case SqlDataType.Money:
+            case SqlDataType.SmallMoney:
+                returnType = string.Format("{0}{1}","decimal", isNullable ? "?":"");
+                break;
+            case SqlDataType.Float:
+                returnType = string.Format("{0}{1}","double", isNullable ? "?":"");
+                break;
+            case SqlDataType.Int:
+                returnType = string.Format("{0}{1}","int", isNullable ? "?":"");
+                break;
+            case SqlDataType.Real:
+                returnType = string.Format("{0}{1}","float", isNullable ? "?":"");
+                break;
+            case SqlDataType.UniqueIdentifier:
+                returnType = string.Format("{0}{1}","Guid", isNullable ? "?":"");
+                break;
+            case SqlDataType.SmallInt:
+                returnType = string.Format("{0}{1}","short", isNullable ? "?":"");
+                break;
+            case SqlDataType.TinyInt:
+                returnType = string.Format("{0}{1}","byte", isNullable ? "?":"");
+                break;
+            case SqlDataType.Variant:
+                returnType = string.Format("{0}{1}","object", "");
+                break;
+            case SqlDataType.DateTimeOffset:
+                returnType = string.Format("{0}{1}","DateTimeOffset", isNullable ? "?":"");
+                break;
+            default:
+                returnType = string.Format("{0}{1}","string", "");
+                break;
+        }
+
+        return returnType;
+    }
 #>

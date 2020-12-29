@@ -1,34 +1,49 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[projects]")]
+    [Map("[internal].[projects]")]    
+    [ControllerDetails("api/v1/Projects",typeof(long))]    
     public class Projects
     {
-        [Map("[project_id]")]
+        [Key]
+        [Map("[project_id]")]         
         public long ProjectId { get; set; }
-        [Map("[folder_id]")]
+        
+        [Map("[folder_id]")]         
         public long FolderId { get; set; }
-        [Map("[name]")]
+        
+        [Map("[name]")]         
         public string Name { get; set; }
-        [Map("[description]")]
+        
+        [Map("[description]")]         
         public string Description { get; set; }
-        [Map("[project_format_version]")]
+        
+        [Map("[project_format_version]")]         
         public int? ProjectFormatVersion { get; set; }
-        [Map("[deployed_by_sid]")]
+        
+        [Map("[deployed_by_sid]")]         
         public byte[] DeployedBySid { get; set; }
-        [Map("[deployed_by_name]")]
+        
+        [Map("[deployed_by_name]")]         
         public string DeployedByName { get; set; }
-        [Map("[last_deployed_time]")]
+        
+        [Map("[last_deployed_time]")]         
         public DateTimeOffset LastDeployedTime { get; set; }
-        [Map("[created_time]")]
+        
+        [Map("[created_time]")]         
         public DateTimeOffset CreatedTime { get; set; }
-        [Map("[object_version_lsn]")]
+        
+        [Map("[object_version_lsn]")]         
         public long ObjectVersionLsn { get; set; }
-        [Map("[validation_status]")]
+        
+        [Map("[validation_status]")]         
         public string ValidationStatus { get; set; }
-        [Map("[last_validation_time]")]
+        
+        [Map("[last_validation_time]")]         
         public DateTimeOffset? LastValidationTime { get; set; }
     }
 }

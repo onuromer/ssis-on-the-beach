@@ -1,26 +1,37 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[extended_operation_info]")]
+    [Map("[internal].[extended_operation_info]")]    
+    [ControllerDetails("api/v1/ExtendedOperationInfo",typeof(long))]    
     public class ExtendedOperationInfo
     {
-        [Map("[info_id]")]
+        [Key]
+        [Map("[info_id]")]         
         public long InfoId { get; set; }
-        [Map("[operation_id]")]
+        
+        [Map("[operation_id]")]         
         public long OperationId { get; set; }
-        [Map("[object_name]")]
+        
+        [Map("[object_name]")]         
         public string ObjectName { get; set; }
-        [Map("[object_type]")]
+        
+        [Map("[object_type]")]         
         public short? ObjectType { get; set; }
-        [Map("[reference_id]")]
+        
+        [Map("[reference_id]")]         
         public long? ReferenceId { get; set; }
-        [Map("[status]")]
+        
+        [Map("[status]")]         
         public int Status { get; set; }
-        [Map("[start_time]")]
+        
+        [Map("[start_time]")]         
         public DateTimeOffset StartTime { get; set; }
-        [Map("[end_time]")]
+        
+        [Map("[end_time]")]         
         public DateTimeOffset? EndTime { get; set; }
     }
 }

@@ -1,36 +1,52 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[execution_data_statistics]")]
+    [Map("[internal].[execution_data_statistics]")]    
+    [ControllerDetails("api/v1/ExecutionDataStatistics",typeof(long))]    
     public class ExecutionDataStatistics
     {
-        [Map("[data_stats_id]")]
+        [Key]
+        [Map("[data_stats_id]")]         
         public long DataStatsId { get; set; }
-        [Map("[execution_id]")]
+        
+        [Map("[execution_id]")]         
         public long ExecutionId { get; set; }
-        [Map("[package_name]")]
+        
+        [Map("[package_name]")]         
         public string PackageName { get; set; }
-        [Map("[package_location_type]")]
+        
+        [Map("[package_location_type]")]         
         public string PackageLocationType { get; set; }
-        [Map("[package_path_full]")]
+        
+        [Map("[package_path_full]")]         
         public string PackagePathFull { get; set; }
-        [Map("[task_name]")]
+        
+        [Map("[task_name]")]         
         public string TaskName { get; set; }
-        [Map("[dataflow_path_id_string]")]
+        
+        [Map("[dataflow_path_id_string]")]         
         public string DataflowPathIdString { get; set; }
-        [Map("[dataflow_path_name]")]
+        
+        [Map("[dataflow_path_name]")]         
         public string DataflowPathName { get; set; }
-        [Map("[source_component_name]")]
+        
+        [Map("[source_component_name]")]         
         public string SourceComponentName { get; set; }
-        [Map("[destination_component_name]")]
+        
+        [Map("[destination_component_name]")]         
         public string DestinationComponentName { get; set; }
-        [Map("[rows_sent]")]
+        
+        [Map("[rows_sent]")]         
         public long? RowsSent { get; set; }
-        [Map("[created_time]")]
+        
+        [Map("[created_time]")]         
         public DateTimeOffset? CreatedTime { get; set; }
-        [Map("[execution_path]")]
+        
+        [Map("[execution_path]")]         
         public string ExecutionPath { get; set; }
     }
 }

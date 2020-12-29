@@ -1,28 +1,40 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[executables]")]
+    [Map("[internal].[executables]")]    
+    [ControllerDetails("api/v1/Executables",typeof(long))]    
     public class Executables
     {
-        [Map("[executable_id]")]
+        [Key]
+        [Map("[executable_id]")]         
         public long ExecutableId { get; set; }
-        [Map("[project_id]")]
+        
+        [Map("[project_id]")]         
         public long ProjectId { get; set; }
-        [Map("[project_version_lsn]")]
+        
+        [Map("[project_version_lsn]")]         
         public long ProjectVersionLsn { get; set; }
-        [Map("[package_name]")]
+        
+        [Map("[package_name]")]         
         public string PackageName { get; set; }
-        [Map("[package_location_type]")]
+        
+        [Map("[package_location_type]")]         
         public string PackageLocationType { get; set; }
-        [Map("[package_path_full]")]
+        
+        [Map("[package_path_full]")]         
         public string PackagePathFull { get; set; }
-        [Map("[executable_name]")]
+        
+        [Map("[executable_name]")]         
         public string ExecutableName { get; set; }
-        [Map("[executable_guid]")]
+        
+        [Map("[executable_guid]")]         
         public string ExecutableGuid { get; set; }
-        [Map("[package_path]")]
+        
+        [Map("[package_path]")]         
         public string PackagePath { get; set; }
     }
 }

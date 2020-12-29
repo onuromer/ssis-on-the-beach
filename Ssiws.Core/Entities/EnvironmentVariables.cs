@@ -1,28 +1,40 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[environment_variables]")]
+    [Map("[internal].[environment_variables]")]    
+    [ControllerDetails("api/v1/EnvironmentVariables",typeof(long))]    
     public class EnvironmentVariables
     {
-        [Map("[variable_id]")]
+        [Key]
+        [Map("[variable_id]")]         
         public long VariableId { get; set; }
-        [Map("[environment_id]")]
+        
+        [Map("[environment_id]")]         
         public long EnvironmentId { get; set; }
-        [Map("[name]")]
+        
+        [Map("[name]")]         
         public string Name { get; set; }
-        [Map("[description]")]
+        
+        [Map("[description]")]         
         public string Description { get; set; }
-        [Map("[type]")]
+        
+        [Map("[type]")]         
         public string Type { get; set; }
-        [Map("[sensitive]")]
+        
+        [Map("[sensitive]")]         
         public bool Sensitive { get; set; }
-        [Map("[value]")]
+        
+        [Map("[value]")]         
         public object Value { get; set; }
-        [Map("[sensitive_value]")]
+        
+        [Map("[sensitive_value]")]         
         public string SensitiveValue { get; set; }
-        [Map("[base_data_type]")]
+        
+        [Map("[base_data_type]")]         
         public string BaseDataType { get; set; }
     }
 }

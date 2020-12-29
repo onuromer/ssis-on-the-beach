@@ -1,24 +1,34 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[execution_data_taps]")]
+    [Map("[internal].[execution_data_taps]")]    
+    [ControllerDetails("api/v1/ExecutionDataTaps",typeof(long))]    
     public class ExecutionDataTaps
     {
-        [Map("[data_tap_id]")]
+        [Key]
+        [Map("[data_tap_id]")]         
         public long DataTapId { get; set; }
-        [Map("[execution_id]")]
+        
+        [Map("[execution_id]")]         
         public long ExecutionId { get; set; }
-        [Map("[package_path]")]
+        
+        [Map("[package_path]")]         
         public string PackagePath { get; set; }
-        [Map("[dataflow_path_id_string]")]
+        
+        [Map("[dataflow_path_id_string]")]         
         public string DataflowPathIdString { get; set; }
-        [Map("[dataflow_task_guid]")]
+        
+        [Map("[dataflow_task_guid]")]         
         public Guid? DataflowTaskGuid { get; set; }
-        [Map("[max_rows]")]
+        
+        [Map("[max_rows]")]         
         public int? MaxRows { get; set; }
-        [Map("[filename]")]
+        
+        [Map("[filename]")]         
         public string Filename { get; set; }
     }
 }

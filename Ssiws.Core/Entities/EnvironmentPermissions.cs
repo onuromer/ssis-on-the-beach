@@ -1,24 +1,34 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[environment_permissions]")]
+    [Map("[internal].[environment_permissions]")]    
+    [ControllerDetails("api/v1/EnvironmentPermissions",typeof(long))]    
     public class EnvironmentPermissions
     {
-        [Map("[id]")]
+        [Key]
+        [Map("[id]")]         
         public long Id { get; set; }
-        [Map("[sid]")]
+        
+        [Map("[sid]")]         
         public string Sid { get; set; }
-        [Map("[object_id]")]
+        
+        [Map("[object_id]")]         
         public long ObjectId { get; set; }
-        [Map("[permission_type]")]
+        
+        [Map("[permission_type]")]         
         public short PermissionType { get; set; }
-        [Map("[is_role]")]
+        
+        [Map("[is_role]")]         
         public bool IsRole { get; set; }
-        [Map("[is_deny]")]
+        
+        [Map("[is_deny]")]         
         public bool IsDeny { get; set; }
-        [Map("[grantor_sid]")]
+        
+        [Map("[grantor_sid]")]         
         public string GrantorSid { get; set; }
     }
 }

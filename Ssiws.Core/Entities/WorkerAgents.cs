@@ -1,26 +1,37 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[worker_agents]")]
+    [Map("[internal].[worker_agents]")]    
+    [ControllerDetails("api/v1/WorkerAgents",typeof(Guid))]    
     public class WorkerAgents
     {
-        [Map("[WorkerAgentId]")]
+        [Key]
+        [Map("[WorkerAgentId]")]         
         public Guid Workeragentid { get; set; }
-        [Map("[DisplayName]")]
+        
+        [Map("[DisplayName]")]         
         public string Displayname { get; set; }
-        [Map("[Description]")]
+        
+        [Map("[Description]")]         
         public string Description { get; set; }
-        [Map("[MachineName]")]
+        
+        [Map("[MachineName]")]         
         public string Machinename { get; set; }
-        [Map("[Tags]")]
+        
+        [Map("[Tags]")]         
         public string Tags { get; set; }
-        [Map("[UserAccount]")]
+        
+        [Map("[UserAccount]")]         
         public string Useraccount { get; set; }
-        [Map("[IsEnabled]")]
+        
+        [Map("[IsEnabled]")]         
         public bool Isenabled { get; set; }
-        [Map("[LastOnlineTime]")]
+        
+        [Map("[LastOnlineTime]")]         
         public DateTimeOffset Lastonlinetime { get; set; }
     }
 }

@@ -1,44 +1,64 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[tasks_history]")]
+    [Map("[internal].[tasks_history]")]    
+    [ControllerDetails("api/v1/TasksHistory",typeof(Guid))]    
     public class TasksHistory
     {
-        [Map("[TaskId]")]
+        [Key]
+        [Map("[TaskId]")]         
         public Guid Taskid { get; set; }
-        [Map("[JobId]")]
+        
+        [Map("[JobId]")]         
         public Guid? Jobid { get; set; }
-        [Map("[TaskType]")]
+        
+        [Map("[TaskType]")]         
         public int Tasktype { get; set; }
-        [Map("[InputData]")]
+        
+        [Map("[InputData]")]         
         public string Inputdata { get; set; }
-        [Map("[MaxExecutedCount]")]
+        
+        [Map("[MaxExecutedCount]")]         
         public int Maxexecutedcount { get; set; }
-        [Map("[ExecutedCount]")]
+        
+        [Map("[ExecutedCount]")]         
         public int Executedcount { get; set; }
-        [Map("[Status]")]
+        
+        [Map("[Status]")]         
         public int Status { get; set; }
-        [Map("[IsCritical]")]
+        
+        [Map("[IsCritical]")]         
         public bool? Iscritical { get; set; }
-        [Map("[Priority]")]
+        
+        [Map("[Priority]")]         
         public int Priority { get; set; }
-        [Map("[ReadyForDispatchTime]")]
+        
+        [Map("[ReadyForDispatchTime]")]         
         public DateTimeOffset? Readyfordispatchtime { get; set; }
-        [Map("[LastUpdatedTime]")]
+        
+        [Map("[LastUpdatedTime]")]         
         public DateTimeOffset Lastupdatedtime { get; set; }
-        [Map("[CreatedTime]")]
+        
+        [Map("[CreatedTime]")]         
         public DateTimeOffset Createdtime { get; set; }
-        [Map("[WorkerAgentId]")]
+        
+        [Map("[WorkerAgentId]")]         
         public Guid? Workeragentid { get; set; }
-        [Map("[ExpiredTime]")]
+        
+        [Map("[ExpiredTime]")]         
         public DateTimeOffset? Expiredtime { get; set; }
-        [Map("[CreateWorkerAgentId]")]
+        
+        [Map("[CreateWorkerAgentId]")]         
         public Guid? Createworkeragentid { get; set; }
-        [Map("[IsCancelled]")]
+        
+        [Map("[IsCancelled]")]         
         public bool? Iscancelled { get; set; }
-        [Map("[LastPickupTime]")]
+        
+        [Map("[LastPickupTime]")]         
         public DateTimeOffset? Lastpickuptime { get; set; }
     }
 }

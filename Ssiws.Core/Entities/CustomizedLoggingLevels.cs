@@ -1,26 +1,37 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[customized_logging_levels]")]
+    [Map("[internal].[customized_logging_levels]")]    
+    [ControllerDetails("api/v1/CustomizedLoggingLevels",typeof(long))]    
     public class CustomizedLoggingLevels
     {
-        [Map("[level_id]")]
+        [Key]
+        [Map("[level_id]")]         
         public long LevelId { get; set; }
-        [Map("[name]")]
+        
+        [Map("[name]")]         
         public string Name { get; set; }
-        [Map("[description]")]
+        
+        [Map("[description]")]         
         public string Description { get; set; }
-        [Map("[profile_value]")]
+        
+        [Map("[profile_value]")]         
         public long ProfileValue { get; set; }
-        [Map("[events_value]")]
+        
+        [Map("[events_value]")]         
         public long EventsValue { get; set; }
-        [Map("[created_by_sid]")]
+        
+        [Map("[created_by_sid]")]         
         public byte[] CreatedBySid { get; set; }
-        [Map("[created_by_name]")]
+        
+        [Map("[created_by_name]")]         
         public string CreatedByName { get; set; }
-        [Map("[created_time]")]
+        
+        [Map("[created_time]")]         
         public DateTimeOffset CreatedTime { get; set; }
     }
 }

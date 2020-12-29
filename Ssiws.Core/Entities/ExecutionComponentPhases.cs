@@ -1,34 +1,49 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[execution_component_phases]")]
+    [Map("[internal].[execution_component_phases]")]    
+    [ControllerDetails("api/v1/ExecutionComponentPhases",typeof(long))]    
     public class ExecutionComponentPhases
     {
-        [Map("[phase_stats_id]")]
+        [Key]
+        [Map("[phase_stats_id]")]         
         public long PhaseStatsId { get; set; }
-        [Map("[execution_id]")]
+        
+        [Map("[execution_id]")]         
         public long ExecutionId { get; set; }
-        [Map("[package_name]")]
+        
+        [Map("[package_name]")]         
         public string PackageName { get; set; }
-        [Map("[package_location_type]")]
+        
+        [Map("[package_location_type]")]         
         public string PackageLocationType { get; set; }
-        [Map("[package_path_full]")]
+        
+        [Map("[package_path_full]")]         
         public string PackagePathFull { get; set; }
-        [Map("[task_name]")]
+        
+        [Map("[task_name]")]         
         public string TaskName { get; set; }
-        [Map("[subcomponent_name]")]
+        
+        [Map("[subcomponent_name]")]         
         public string SubcomponentName { get; set; }
-        [Map("[phase]")]
+        
+        [Map("[phase]")]         
         public string Phase { get; set; }
-        [Map("[is_start]")]
+        
+        [Map("[is_start]")]         
         public bool? IsStart { get; set; }
-        [Map("[phase_time]")]
+        
+        [Map("[phase_time]")]         
         public DateTimeOffset? PhaseTime { get; set; }
-        [Map("[execution_path]")]
+        
+        [Map("[execution_path]")]         
         public string ExecutionPath { get; set; }
-        [Map("[sequence_id]")]
+        
+        [Map("[sequence_id]")]         
         public int? SequenceId { get; set; }
     }
 }

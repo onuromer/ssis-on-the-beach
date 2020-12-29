@@ -1,28 +1,40 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[validations]")]
+    [Map("[internal].[validations]")]    
+    [ControllerDetails("api/v1/Validations",typeof(long))]    
     public class Validations
     {
-        [Map("[validation_id]")]
+        [Key]
+        [Map("[validation_id]")]         
         public long ValidationId { get; set; }
-        [Map("[environment_scope]")]
+        
+        [Map("[environment_scope]")]         
         public string EnvironmentScope { get; set; }
-        [Map("[validate_type]")]
+        
+        [Map("[validate_type]")]         
         public string ValidateType { get; set; }
-        [Map("[folder_name]")]
+        
+        [Map("[folder_name]")]         
         public string FolderName { get; set; }
-        [Map("[project_name]")]
+        
+        [Map("[project_name]")]         
         public string ProjectName { get; set; }
-        [Map("[project_lsn]")]
+        
+        [Map("[project_lsn]")]         
         public long? ProjectLsn { get; set; }
-        [Map("[use32bitruntime]")]
+        
+        [Map("[use32bitruntime]")]         
         public bool? Use32bitruntime { get; set; }
-        [Map("[reference_id]")]
+        
+        [Map("[reference_id]")]         
         public long? ReferenceId { get; set; }
-        [Map("[job_id]")]
+        
+        [Map("[job_id]")]         
         public Guid? JobId { get; set; }
     }
 }

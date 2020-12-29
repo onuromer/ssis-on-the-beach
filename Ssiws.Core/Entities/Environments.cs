@@ -1,24 +1,34 @@
 using RepoDb.Attributes;
 using System;
+using Ssiws.Core.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ssiws.Core.Entities 
 {
-    [Map("[internal].[environments]")]
+    [Map("[internal].[environments]")]    
+    [ControllerDetails("api/v1/Environments",typeof(long))]    
     public class Environments
     {
-        [Map("[environment_id]")]
+        [Key]
+        [Map("[environment_id]")]         
         public long EnvironmentId { get; set; }
-        [Map("[environment_name]")]
+        
+        [Map("[environment_name]")]         
         public string EnvironmentName { get; set; }
-        [Map("[folder_id]")]
+        
+        [Map("[folder_id]")]         
         public long FolderId { get; set; }
-        [Map("[description]")]
+        
+        [Map("[description]")]         
         public string Description { get; set; }
-        [Map("[created_by_sid]")]
+        
+        [Map("[created_by_sid]")]         
         public byte[] CreatedBySid { get; set; }
-        [Map("[created_by_name]")]
+        
+        [Map("[created_by_name]")]         
         public string CreatedByName { get; set; }
-        [Map("[created_time]")]
+        
+        [Map("[created_time]")]         
         public DateTimeOffset CreatedTime { get; set; }
     }
 }
