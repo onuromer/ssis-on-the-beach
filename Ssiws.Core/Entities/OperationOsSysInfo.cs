@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[operation_os_sys_info]")]    
-    [ControllerDetails("api/v1/OperationOsSysInfo",typeof(long))]    
+    [ControllerDetails("api/SSISDB/OperationOsSysInfo")]    
     public class OperationOsSysInfo
     {
         [Key]

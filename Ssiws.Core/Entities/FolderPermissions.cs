@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[folder_permissions]")]    
-    [ControllerDetails("api/v1/FolderPermissions",typeof(long))]    
+    [ControllerDetails("api/SSISDB/FolderPermissions")]    
     public class FolderPermissions
     {
         [Key]

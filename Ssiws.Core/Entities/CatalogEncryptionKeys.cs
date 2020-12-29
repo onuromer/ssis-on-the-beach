@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[catalog_encryption_keys]")]    
-    [ControllerDetails("api/v1/CatalogEncryptionKeys",typeof(long))]    
+    [ControllerDetails("api/SSISDB/CatalogEncryptionKeys")]    
     public class CatalogEncryptionKeys
     {
         [Key]

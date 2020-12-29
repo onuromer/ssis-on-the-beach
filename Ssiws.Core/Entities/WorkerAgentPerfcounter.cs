@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[worker_agent_perfcounter]")]    
-    [ControllerDetails("api/v1/WorkerAgentPerfcounter")]    
+    [ControllerDetails("api/SSISDB/WorkerAgentPerfcounter")]    
     public class WorkerAgentPerfcounter
     {
         

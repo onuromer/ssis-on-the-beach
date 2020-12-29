@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[job_worker_agents_history]")]    
-    [ControllerDetails("api/v1/JobWorkerAgentsHistory",typeof(Guid))]    
+    [ControllerDetails("api/SSISDB/JobWorkerAgentsHistory")]    
     public class JobWorkerAgentsHistory
     {
         [Key]

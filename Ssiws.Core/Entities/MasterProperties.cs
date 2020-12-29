@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[master_properties]")]    
-    [ControllerDetails("api/v1/MasterProperties",typeof(string))]    
+    [ControllerDetails("api/SSISDB/MasterProperties")]    
     public class MasterProperties
     {
         [Key]

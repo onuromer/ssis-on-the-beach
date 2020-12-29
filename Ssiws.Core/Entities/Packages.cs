@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[packages]")]    
-    [ControllerDetails("api/v1/Packages",typeof(long))]    
+    [ControllerDetails("api/SSISDB/Packages")]    
     public class Packages
     {
         [Key]

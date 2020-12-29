@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[execution_property_override_values]")]    
-    [ControllerDetails("api/v1/ExecutionPropertyOverrideValues",typeof(long))]    
+    [ControllerDetails("api/SSISDB/ExecutionPropertyOverrideValues")]    
     public class ExecutionPropertyOverrideValues
     {
         [Key]

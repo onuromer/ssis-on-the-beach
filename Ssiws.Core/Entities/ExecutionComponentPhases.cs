@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[execution_component_phases]")]    
-    [ControllerDetails("api/v1/ExecutionComponentPhases",typeof(long))]    
+    [ControllerDetails("api/SSISDB/ExecutionComponentPhases")]    
     public class ExecutionComponentPhases
     {
         [Key]

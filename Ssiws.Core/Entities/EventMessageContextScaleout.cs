@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[event_message_context_scaleout]")]    
-    [ControllerDetails("api/v1/EventMessageContextScaleout")]    
+    [ControllerDetails("api/SSISDB/EventMessageContextScaleout")]    
     public class EventMessageContextScaleout
     {
         

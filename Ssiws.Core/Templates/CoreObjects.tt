@@ -37,7 +37,7 @@ using System.ComponentModel.DataAnnotations;
 namespace <#=Host.ResolveParameterValue("Template1", "Template1", "projectDefaultNamespace") #>.Entities 
 {
     [Map("[<#=table.Schema #>].[<#=table.Name #>]")]    
-    [ControllerDetails("api/v1/<#=FormatTableName(table.Name) #>"<#=PrimaryKey(table) #>)]    
+    [ControllerDetails("api/SSISDB/<#=FormatTableName(table.Name) #>"<#/*=PrimaryKey(table) */#>)]    
     public class <#=FormatTableName(table.Name) #>
     {
 <#

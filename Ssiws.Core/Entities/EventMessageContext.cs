@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[event_message_context]")]    
-    [ControllerDetails("api/v1/EventMessageContext",typeof(long))]    
+    [ControllerDetails("api/SSISDB/EventMessageContext")]    
     public class EventMessageContext
     {
         [Key]

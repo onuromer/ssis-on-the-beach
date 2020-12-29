@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[environment_permissions]")]    
-    [ControllerDetails("api/v1/EnvironmentPermissions",typeof(long))]    
+    [ControllerDetails("api/SSISDB/EnvironmentPermissions")]    
     public class EnvironmentPermissions
     {
         [Key]

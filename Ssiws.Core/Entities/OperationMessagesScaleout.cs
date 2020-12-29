@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[operation_messages_scaleout]")]    
-    [ControllerDetails("api/v1/OperationMessagesScaleout")]    
+    [ControllerDetails("api/SSISDB/OperationMessagesScaleout")]    
     public class OperationMessagesScaleout
     {
         

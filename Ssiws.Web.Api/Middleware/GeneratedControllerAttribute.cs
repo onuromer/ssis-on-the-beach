@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ssiws.Web.Api.Attributes
+namespace Ssiws.Web.Api.Middleware
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public class GeneratedControllerAttribute : Attribute

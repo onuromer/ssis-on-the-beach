@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[customized_logging_levels]")]    
-    [ControllerDetails("api/v1/CustomizedLoggingLevels",typeof(long))]    
+    [ControllerDetails("api/SSISDB/CustomizedLoggingLevels")]    
     public class CustomizedLoggingLevels
     {
         [Key]

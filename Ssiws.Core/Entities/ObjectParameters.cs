@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[object_parameters]")]    
-    [ControllerDetails("api/v1/ObjectParameters",typeof(long))]    
+    [ControllerDetails("api/SSISDB/ObjectParameters")]    
     public class ObjectParameters
     {
         [Key]

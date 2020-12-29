@@ -11,12 +11,13 @@ using System.Threading.Tasks;
 
 namespace Ssiws.Web.Api.Controllers
 {
-    [Route("api/v1/[controller]")]
-    public class BaseController<T> : Controller where T : class
+    [Route("api/Generic/[controller]")]
+    [ApiController]
+    public class ReadonlyController<T> : Controller where T : class
     {
         internal IStorage _storage;
 
-        public BaseController(IStorage storage )
+        public ReadonlyController(IStorage storage )
         {
             _storage = storage;
         }

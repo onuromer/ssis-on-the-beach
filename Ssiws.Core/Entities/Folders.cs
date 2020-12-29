@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[folders]")]    
-    [ControllerDetails("api/v1/Folders",typeof(long))]    
+    [ControllerDetails("api/SSISDB/Folders")]    
     public class Folders
     {
         [Key]

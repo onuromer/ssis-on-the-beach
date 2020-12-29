@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[object_versions]")]    
-    [ControllerDetails("api/v1/ObjectVersions",typeof(long))]    
+    [ControllerDetails("api/SSISDB/ObjectVersions")]    
     public class ObjectVersions
     {
         [Key]

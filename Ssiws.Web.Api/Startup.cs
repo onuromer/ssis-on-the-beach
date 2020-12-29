@@ -14,8 +14,7 @@ using Microsoft.OpenApi.Models;
 using RepoDb;
 using Ssiws.Business.Implementations;
 using Ssiws.Business.Interfaces;
-using Ssiws.Web.Api.Conventions;
-using Ssiws.Web.Api.Features;
+using Ssiws.Web.Api.Middleware;
 
 namespace Ssiws.Web.Api
 {
@@ -35,14 +34,16 @@ namespace Ssiws.Web.Api
             services.AddSingleton<IAppSettings>(Configuration.GetSection("StandartSettings").Get<StandartSettings>());
             services.AddSingleton<IStorage,Storage>();
             services.AddControllers();
-            services.
-                AddMvc(o => o.Conventions.Add(new GenericControllerRouteConvention())).
-                ConfigureApplicationPartManager(m => m.FeatureProviders.Add(new GenericTypeControllerFeatureProvider()));
+            services.AddMvc(o => o.Conventions.Add(new GenericControllerRouteConvention())).
+                                ConfigureApplicationPartManager(m => m.FeatureProviders.Add(new GenericTypeControllerFeatureProvider()));
             services.AddOptions();
             services.AddSwaggerGen(c =>
             {
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "An API for SSIS", Version = "v1" });
+                c.SwaggerDoc("Ops", new OpenApiInfo { Title = "An API for SSIS", Version = "Ops" });
+                c.SwaggerDoc("SSISDB", new OpenApiInfo { Title = "An API for SSIS", Version = "SSISDB" });
+                c.OperationFilter<SwaggerOperationFilter>();
+                c.DocumentFilter<SwaggerDocumentFilter>();
             });
 
         }
@@ -65,12 +66,14 @@ namespace Ssiws.Web.Api
             {
                 endpoints.MapControllers();
             });
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SSIWS V1");
-            });
+                c.SwaggerEndpoint("/swagger/Ops/swagger.json", "SSIWS Operations");
+                c.SwaggerEndpoint("/swagger/SSISDB/swagger.json", "SSIWS SSISDB");
+            });            
         }
     }
 }

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[environment_references]")]    
-    [ControllerDetails("api/v1/EnvironmentReferences",typeof(long))]    
+    [ControllerDetails("api/SSISDB/EnvironmentReferences")]    
     public class EnvironmentReferences
     {
         [Key]

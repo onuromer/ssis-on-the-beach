@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[alwayson_support_state]")]    
-    [ControllerDetails("api/v1/AlwaysonSupportState",typeof(string))]    
+    [ControllerDetails("api/SSISDB/AlwaysonSupportState")]    
     public class AlwaysonSupportState
     {
         [Key]

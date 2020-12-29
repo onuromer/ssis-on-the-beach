@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Mvc.Controllers;
-using Ssiws.Web.Api.Attributes;
 using Ssiws.Web.Api.Controllers;
 using System;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using Ssiws.Core.Attributes;
 
-namespace Ssiws.Web.Api.Features
+namespace Ssiws.Web.Api.Middleware
 {
     public class GenericTypeControllerFeatureProvider : IApplicationFeatureProvider<ControllerFeature>
     {
@@ -17,20 +16,21 @@ namespace Ssiws.Web.Api.Features
         {
             var entitiesAssembly = typeof(Core.Entities.Base).Assembly;
             var candidates = entitiesAssembly.GetExportedTypes().Where(x => x.GetCustomAttributes<ControllerDetailsAttribute>().Any());
+            
 
             foreach (var candidate in candidates)
             {
                 var attr = candidate.GetCustomAttributes<ControllerDetailsAttribute>().First();
                 if (attr.GetByIdDisabled)
                 {
-                    feature.Controllers.Add(typeof(BaseController<>).MakeGenericType(candidate).GetTypeInfo());
+                    feature.Controllers.Add(typeof(ReadonlyController<>).MakeGenericType(candidate).GetTypeInfo());
 
                 }
                 else
                 {
-                    feature.Controllers.Add(typeof(BaseControllerWithId<,>).MakeGenericType(candidate, attr.PrimaryKeyType).GetTypeInfo());
+                    feature.Controllers.Add(typeof(CRUDController<,>).MakeGenericType(candidate, attr.PrimaryKeyType).GetTypeInfo());
                 }
-            }
+            }                       
         }
     }
 }

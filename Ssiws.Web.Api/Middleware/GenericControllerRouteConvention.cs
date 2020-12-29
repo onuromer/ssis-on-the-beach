@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Ssiws.Core.Attributes;
-using Ssiws.Web.Api.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Ssiws.Web.Api.Conventions
+namespace Ssiws.Web.Api.Middleware
 {
     public class GenericControllerRouteConvention : IControllerModelConvention
     {
@@ -23,14 +22,19 @@ namespace Ssiws.Web.Api.Conventions
                 {
                     controller.Selectors.Add(new SelectorModel
                     {
-                        AttributeRouteModel = new AttributeRouteModel(new RouteAttribute(customNameAttribute.Route)),
+                        AttributeRouteModel = new AttributeRouteModel(new RouteAttribute(customNameAttribute.Route) { Name = genericType.Name }),
                     });
                 }
                 else
                 {
                     controller.ControllerName = genericType.Name;
                 }
+
+                controller.ControllerName = genericType.Name;
+
+                controller.ApiExplorer.GroupName = "SSISDB";
             }
         }
     }
 }
+

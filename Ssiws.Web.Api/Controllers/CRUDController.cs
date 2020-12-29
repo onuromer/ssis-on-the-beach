@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace Ssiws.Web.Api.Controllers
 {
-    [Route("api/v1/[controller]")]
-    public class BaseControllerWithId<T, K> : BaseController<T> where T : class
+    [Route("api/Generic/[controller]")]
+    [ApiController]
+    public class CRUDController<T, K> : ReadonlyController<T> where T : class
     {
 
-        public BaseControllerWithId(IStorage storage) : base(storage)
+        public CRUDController(IStorage storage) : base(storage)
         {
 
         }

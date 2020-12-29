@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[data_type_mapping]")]    
-    [ControllerDetails("api/v1/DataTypeMapping",typeof(long))]    
+    [ControllerDetails("api/SSISDB/DataTypeMapping")]    
     public class DataTypeMapping
     {
         [Key]

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Ssiws.Core.Entities 
 {
     [Map("[internal].[executable_statistics]")]    
-    [ControllerDetails("api/v1/ExecutableStatistics",typeof(long))]    
+    [ControllerDetails("api/SSISDB/ExecutableStatistics")]    
     public class ExecutableStatistics
     {
         [Key]
